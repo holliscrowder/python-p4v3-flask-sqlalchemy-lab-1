@@ -37,7 +37,7 @@ def earthquake_by_id(id):
 @app.route("/earthquakes/magnitude/<float:magnitude>")
 def earthquakes_by_magnitude(magnitude):
     earthquakes = []
-    for earthquake in Earthquake.query.filter(magnitude >= magnitude).all():
+    for earthquake in Earthquake.query.filter(Earthquake.magnitude >= magnitude).all():
         earthquakes.append(earthquake.to_dict())
 
     body = {
